@@ -53,7 +53,9 @@ public class SenraiseBarcodePlugin implements FlutterPlugin, MethodCallHandler, 
 
   @Override
   public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
-    channel.setMethodCallHandler(null);
+    if (channel != null){
+      channel.setMethodCallHandler(null);
+    }
   }
 
   private BroadcastReceiver createBarcodeScannedReceiver(final EventChannel.EventSink events) {
